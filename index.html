@@ -27,6 +27,7 @@
     <script src="app/appModule.js"></script>
     <script src="app/appConfig.js"></script>
     <script src="app/appRouteConfig.js"></script>
+    <script src="app/appController.js"></script>
 
     <script src="app/services/dataServices.js"></script>
 
@@ -40,16 +41,27 @@
 
 
   </head>
-  <body class="container-fuild">
-      <ps-menu></ps-menu>
-    <ps-framework
-      title="Title"
-      subtitle="Sub Title">
-      <ps-menu>
-        <ps-menu-item label="Dashbaord" route="dashboard"></ps-menu-item>
-        <ps-menu-item label="Location" route="locations"></ps-menu-item>
-        <ps-menu-item label="Raft" route="guides"></ps-menu-item>
-      </ps-menu>
-    </ps-framework>
+  <body class="container-fuild" ng-controller="appController">
+    <div ng-switch="state">
+      <div ng-switch-when="unauthorized">
+        <input type="text" placeholder="user">
+        <input type="text" placeholder="pwd">
+        <button type="submit"></button>
+      </div>
+      <div ng-switch-default>
+          <ps-menu></ps-menu>
+          <ps-framework
+            title="Title"
+            subtitle="Sub Title">
+            <ps-menu>
+              <ps-menu-item label="Dashbaord" route="dashboard"></ps-menu-item>
+              <ps-menu-item label="Location" route="locations"></ps-menu-item>
+              <ps-menu-item label="Raft" route="guides"></ps-menu-item>
+            </ps-menu>
+          </ps-framework>
+      </div>
+    </div>
+
+
   </body>
 </html>
